@@ -7,45 +7,45 @@ const Skills = () => {
       title: "Frontend Development",
       icon: Globe,
       color: "text-primary",
-      skills: [
-        { name: "React", icon: "⚛️", level: 95, glow: "text-tech-cyan" },
-        { name: "Next.js", icon: "▲", level: 90, glow: "text-primary" },
-        { name: "TypeScript", icon: "📘", level: 88, glow: "text-accent" },
-        { name: "JavaScript", icon: "🟨", level: 95, glow: "text-matrix-green" },
-        { name: "HTML5", icon: "🌐", level: 98, glow: "text-primary" },
-        { name: "CSS3", icon: "🎨", level: 92, glow: "text-tech-purple" },
-        { name: "Angular", icon: "🅰️", level: 80, glow: "text-accent" },
-        { name: "Sass", icon: "💄", level: 85, glow: "text-tech-cyan" }
+        skills: [
+        { name: "React", icon: "⚛️", glow: "text-tech-cyan" },
+        { name: "Next.js", icon: "▲", glow: "text-primary" },
+        { name: "TypeScript", icon: "📘", glow: "text-accent" },
+        { name: "JavaScript", icon: "🟨", glow: "text-matrix-green" },
+        { name: "HTML5", icon: "🌐", glow: "text-primary" },
+        { name: "CSS3", icon: "🎨", glow: "text-tech-purple" },
+        { name: "Angular", icon: "🅰️", glow: "text-accent" },
+        { name: "Sass", icon: "💄", glow: "text-tech-cyan" }
       ]
     },
     {
       title: "Backend Development",
       icon: Code2,
       color: "text-accent",
-      skills: [
-        { name: "Node.js", icon: "🟢", level: 90, glow: "text-matrix-green" },
-        { name: "Express.js", icon: "🚂", level: 88, glow: "text-primary" },
-        { name: "PHP", icon: "🐘", level: 85, glow: "text-tech-purple" },
-        { name: "Laravel", icon: "🎯", level: 82, glow: "text-accent" },
-        { name: "Python", icon: "🐍", level: 75, glow: "text-tech-cyan" },
-        { name: "C#", icon: "⚡", level: 80, glow: "text-primary" },
-        { name: ".NET", icon: "🔷", level: 78, glow: "text-accent" },
-        { name: "Java", icon: "☕", level: 70, glow: "text-matrix-green" }
+        skills: [
+        { name: "Node.js", icon: "🟢", glow: "text-matrix-green" },
+        { name: "Express.js", icon: "🚂", glow: "text-primary" },
+        { name: "PHP", icon: "🐘", glow: "text-tech-purple" },
+        { name: "Laravel", icon: "🎯", glow: "text-accent" },
+        { name: "Python", icon: "🐍", glow: "text-tech-cyan" },
+        { name: "C#", icon: "⚡", glow: "text-primary" },
+        { name: ".NET", icon: "🔷", glow: "text-accent" },
+        { name: "Java", icon: "☕", glow: "text-matrix-green" }
       ]
     },
     {
       title: "Database & DevOps",
       icon: Database,
       color: "text-tech-cyan",
-      skills: [
-        { name: "MySQL", icon: "🗄️", level: 90, glow: "text-primary" },
-        { name: "MongoDB", icon: "🍃", level: 85, glow: "text-matrix-green" },
-        { name: "Git", icon: "📚", level: 95, glow: "text-accent" },
-        { name: "Docker", icon: "🐳", level: 75, glow: "text-tech-cyan" },
-        { name: "AWS", icon: "☁️", level: 70, glow: "text-tech-purple" },
-        { name: "Kubernetes", icon: "⚙️", level: 65, glow: "text-primary" },
-        { name: "WordPress", icon: "📝", level: 88, glow: "text-accent" },
-        { name: "C++", icon: "🔧", level: 75, glow: "text-matrix-green" }
+        skills: [
+        { name: "MySQL", icon: "🗄️", glow: "text-primary" },
+        { name: "MongoDB", icon: "🍃", glow: "text-matrix-green" },
+        { name: "Git", icon: "📚", glow: "text-accent" },
+        { name: "Docker", icon: "🐳", glow: "text-tech-cyan" },
+        { name: "AWS", icon: "☁️", glow: "text-tech-purple" },
+        { name: "Kubernetes", icon: "⚙️", glow: "text-primary" },
+        { name: "WordPress", icon: "📝", glow: "text-accent" },
+        { name: "C++", icon: "🔧", glow: "text-matrix-green" }
       ]
     }
   ];
@@ -89,43 +89,21 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <div 
                     key={skill.name}
-                    className="fade-in-digital group"
+                    className="fade-in-digital group p-4 rounded-lg bg-gradient-to-r from-muted/20 to-muted/10 border border-muted/30 hover:border-primary/30 transition-all duration-300"
                     style={{ animationDelay: `${(categoryIndex * 0.2) + (skillIndex * 0.1)}s` }}
                   >
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-4">
-                        <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{skill.icon}</span>
-                        <span className="font-semibold text-foreground text-lg">{skill.name}</span>
-                      </div>
-                      <span className={`font-mono text-lg font-bold ${skill.glow}`}>
-                        {skill.level}%
-                      </span>
-                    </div>
-                    
-                    {/* Enhanced Progress Bar */}
-                    <div className="relative">
-                      <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
-                        <div 
-                          className="h-3 rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
-                          style={{ 
-                            width: `${skill.level}%`,
-                            background: `linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--tech-cyan)))`,
-                            animationDelay: `${(categoryIndex * 0.3) + (skillIndex * 0.1)}s`
-                          }}
-                        >
-                          {/* Shimmer effect */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
+                    <div className="flex items-center gap-4">
+                      <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{skill.icon}</span>
+                      <div className="flex-1">
+                        <span className="font-semibold text-foreground text-lg block">{skill.name}</span>
+                        <div className="flex items-center gap-2 mt-1">
+                          <div className={`w-2 h-2 rounded-full ${skill.glow} animate-pulse`} />
+                          <span className="text-xs text-muted-foreground font-mono">LOADED</span>
                         </div>
                       </div>
-                      
-                      {/* Glow effect on hover */}
-                      <div 
-                        className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        style={{ 
-                          boxShadow: `0 0 20px hsl(var(--primary) / 0.5)`,
-                          width: `${skill.level}%`
-                        }}
-                      />
+                      <span className={`font-mono text-sm font-bold ${skill.glow}`}>
+                        ✓
+                      </span>
                     </div>
                   </div>
                 ))}
