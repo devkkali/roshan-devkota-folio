@@ -60,7 +60,7 @@ const Hero = () => {
       {/* Profile Photo Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
-        style={{ backgroundImage: `url('/src/assets/profile-photo.jpg')` }}
+        style={{ backgroundImage: `url('/lovable-uploads/2e1819d6-820c-42c0-aaad-7653d5cf760f.png')` }}
       />
       
       {/* Tech Circuit Background */}
