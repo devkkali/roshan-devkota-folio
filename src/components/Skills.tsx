@@ -84,7 +84,7 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {skillCategories.map((category, categoryIndex) => (
             <div 
               key={category.title} 
@@ -93,16 +93,16 @@ const Skills = () => {
             >
               <Card className="skill-card h-full relative overflow-hidden group">
                 {/* Category Header with Glow */}
-                <div className={`p-6 bg-gradient-to-br ${category.bgGlow} border-b border-muted/20 relative`}>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br from-card to-muted ${category.color} shadow-lg`}>
-                      <category.icon className="w-8 h-8" />
+                <div className={`p-4 md:p-6 bg-gradient-to-br ${category.bgGlow} border-b border-muted/20 relative`}>
+                  <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                    <div className={`p-2 md:p-3 rounded-xl bg-gradient-to-br from-card to-muted ${category.color} shadow-lg`}>
+                      <category.icon className="w-6 h-6 md:w-8 md:h-8" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-foreground">
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground">
                         {category.title}
                       </h3>
-                      <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent mt-2" />
+                      <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-primary to-accent mt-2" />
                     </div>
                   </div>
                   
@@ -112,24 +112,24 @@ const Skills = () => {
                 </div>
                 
                 {/* Skills Grid */}
-                <div className="p-6 space-y-4">
+                <div className="p-4 md:p-6 space-y-3 md:space-y-4">
                   {category.skills.map((skill, skillIndex) => (
                     <div 
                       key={skill.name}
-                      className="group/skill p-4 rounded-lg bg-gradient-to-r from-muted/10 to-muted/5 border border-muted/20 hover:border-primary/30 transition-all duration-300 hover:scale-105"
+                      className="group/skill p-3 md:p-4 rounded-lg bg-gradient-to-r from-muted/10 to-muted/5 border border-muted/20 hover:border-primary/30 transition-all duration-300 hover:scale-105"
                       style={{ animationDelay: `${(categoryIndex * 0.3) + (skillIndex * 0.1)}s` }}
                     >
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <span className="text-2xl group-hover/skill:scale-110 transition-transform duration-300">
+                        <div className="flex items-center gap-2 md:gap-3">
+                          <span className="text-lg md:text-2xl group-hover/skill:scale-110 transition-transform duration-300">
                             {skill.icon}
                           </span>
                           <div>
-                            <span className="font-semibold text-foreground block">
+                            <span className="font-semibold text-foreground block text-sm md:text-base">
                               {skill.name}
                             </span>
                             <div className="flex items-center gap-2 mt-1">
-                              <div className={`w-2 h-2 rounded-full ${skill.glow} animate-pulse`} />
+                              <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${skill.glow} animate-pulse`} />
                               <span className="text-xs text-muted-foreground font-mono">
                                 ACTIVE
                               </span>
@@ -144,11 +144,11 @@ const Skills = () => {
                       </div>
                       
                       {/* Skill Progress Visualization */}
-                      <div className="mt-3 flex gap-1">
+                      <div className="mt-2 md:mt-3 flex gap-1">
                         {[1,2,3,4,5].map((dot, i) => (
                           <div 
                             key={i}
-                            className={`w-2 h-1 rounded-full transition-all duration-300 ${
+                            className={`w-1.5 h-1 md:w-2 md:h-1 rounded-full transition-all duration-300 ${
                               i < (skill.level === 'Expert' ? 5 : skill.level === 'Advanced' ? 4 : skill.level === 'Intermediate' ? 3 : 2)
                                 ? `bg-gradient-to-r from-primary to-accent`
                                 : 'bg-muted/50'

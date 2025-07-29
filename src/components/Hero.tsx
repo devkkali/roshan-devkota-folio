@@ -57,9 +57,15 @@ const Hero = () => {
       {/* Data Streams */}
       <div id="data-streams" className="absolute inset-0 pointer-events-none z-10" />
       
-      {/* Advanced Background */}
+      {/* Profile Photo Background */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
+        style={{ backgroundImage: `url('/src/assets/profile-photo.jpg')` }}
+      />
+      
+      {/* Tech Circuit Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
         style={{ backgroundImage: `url(${heroImage})` }}
       />
       
@@ -97,7 +103,6 @@ const Hero = () => {
             Crafting cutting-edge digital solutions with{' '}
             <span className="text-primary font-semibold">modern technologies</span> and{' '}
             <span className="text-accent font-semibold">innovative thinking</span>.
-            Currently pursuing Master's in Applied Computer Science in Germany.
           </p>
         </div>
         

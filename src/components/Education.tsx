@@ -6,9 +6,9 @@ const Education = () => {
     {
       degree: "Master in Applied Computer Science",
       institution: "SRH University, Germany",
-      period: "2023 - Present",
-      description: "Focusing on advanced software engineering, artificial intelligence, and modern development practices.",
-      status: "IN_PROGRESS",
+      period: "2023 - 2025",
+      description: "Completed advanced studies in software engineering, artificial intelligence, and modern development practices.",
+      status: "COMPLETED",
       side: "left",
       level: "ADVANCED"
     },
@@ -52,7 +52,7 @@ const Education = () => {
           <div className="absolute left-1/2 transform -translate-x-1/2 top-20 w-6 h-6 bg-primary rounded-full border-4 border-background shadow-lg shadow-primary/50 animate-pulse hidden md:block" />
           <div className="absolute left-1/2 transform -translate-x-1/2 bottom-20 w-6 h-6 bg-accent rounded-full border-4 border-background shadow-lg shadow-accent/50 animate-pulse hidden md:block" style={{ animationDelay: '1s' }} />
 
-          <div className="space-y-20">
+          <div className="space-y-12 md:space-y-20">
             {educationData.map((edu, index) => (
               <div 
                 key={index}
@@ -62,7 +62,7 @@ const Education = () => {
                 style={{ animationDelay: `${index * 0.3}s` }}
               >
                 <div className={`w-full md:w-5/12 ${edu.side === 'right' ? 'md:text-right' : ''}`}>
-                  <Card className="skill-card p-8 relative overflow-hidden group hover:scale-105 transition-all duration-300">
+                  <Card className="skill-card p-6 md:p-8 relative overflow-hidden group hover:scale-105 transition-all duration-300">
                     {/* Connection Line to Timeline */}
                     <div className={`absolute top-1/2 ${
                       edu.side === 'left' ? 'right-0' : 'left-0'
@@ -89,27 +89,27 @@ const Education = () => {
                       </span>
                     </div>
 
-                    <div className="space-y-6 mt-8">
+                    <div className="space-y-4 md:space-y-6 mt-6 md:mt-8">
                       <div>
-                        <h3 className="text-2xl font-bold text-primary mb-3 flex items-center gap-3">
-                          <Terminal className="w-6 h-6" />
+                        <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 md:mb-3 flex items-center gap-2 md:gap-3">
+                          <Terminal className="w-5 h-5 md:w-6 md:h-6" />
                           {edu.degree}
                         </h3>
-                        <div className="space-y-2">
-                          <p className="text-accent font-bold text-lg">
+                        <div className="space-y-1 md:space-y-2">
+                          <p className="text-accent font-bold text-base md:text-lg">
                             {edu.institution}
                           </p>
                           <div className="flex items-center gap-2">
-                            <Calendar className="w-4 h-4 text-muted-foreground" />
-                            <span className="text-muted-foreground font-mono text-sm">
+                            <Calendar className="w-3 h-3 md:w-4 md:h-4 text-muted-foreground" />
+                            <span className="text-muted-foreground font-mono text-xs md:text-sm">
                               {edu.period}
                             </span>
                           </div>
                         </div>
                       </div>
                       
-                      <div className="p-4 bg-muted/30 rounded-lg border-l-4 border-primary/50">
-                        <p className="text-foreground leading-relaxed">
+                      <div className="p-3 md:p-4 bg-muted/30 rounded-lg border-l-4 border-primary/50">
+                        <p className="text-foreground leading-relaxed text-sm md:text-base">
                           {edu.description}
                         </p>
                       </div>
