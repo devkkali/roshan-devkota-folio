@@ -3,6 +3,8 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import { Terminal, Linkedin, Github } from "lucide-react";
 
@@ -14,6 +16,8 @@ const Index = () => {
       <About />
       <Skills />
       <Education />
+      <Experience />
+      <Projects />
       <Contact />
       
       {/* Enhanced Digital Footer */}
@@ -54,6 +58,12 @@ const Index = () => {
                   </a>
                   <a href="#education" className="block text-muted-foreground hover:text-primary transition-colors duration-200 font-mono">
                     education.history()
+                  </a>
+                  <a href="#experience" className="block text-muted-foreground hover:text-primary transition-colors duration-200 font-mono">
+                    career.log()
+                  </a>
+                  <a href="#projects" className="block text-muted-foreground hover:text-primary transition-colors duration-200 font-mono">
+                    projects.array[]
                   </a>
                   <a href="#contact" className="block text-muted-foreground hover:text-primary transition-colors duration-200 font-mono">
                     contact.init()
