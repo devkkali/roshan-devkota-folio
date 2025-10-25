@@ -1,4 +1,4 @@
-import { Briefcase, Calendar, MapPin, Code2, TrendingUp } from "lucide-react";
+import { Briefcase, Calendar, MapPin, Code2, TrendingUp, Building2, Zap } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -8,6 +8,7 @@ const experienceData = [
     role: "Senior Full Stack Developer",
     location: "Remote",
     period: "2023 - Present",
+    duration: "1+ year",
     status: "Current",
     description: "Leading development of enterprise-scale web applications using modern tech stack",
     achievements: [
@@ -15,14 +16,14 @@ const experienceData = [
       "Improved application performance by 40%",
       "Mentored team of 5 junior developers"
     ],
-    tech: ["React", "Node.js", "PostgreSQL", "Docker", "AWS"],
-    side: "left"
+    tech: ["React", "Node.js", "PostgreSQL", "Docker", "AWS"]
   },
   {
     company: "Digital Innovations Ltd.",
     role: "Full Stack Developer",
     location: "Hybrid",
     period: "2021 - 2023",
+    duration: "2 years",
     status: "Past",
     description: "Developed and maintained multiple client projects with focus on user experience",
     achievements: [
@@ -30,14 +31,14 @@ const experienceData = [
       "Reduced deployment time by 60%",
       "Implemented CI/CD pipelines"
     ],
-    tech: ["Vue.js", "Python", "MongoDB", "Redis"],
-    side: "right"
+    tech: ["Vue.js", "Python", "MongoDB", "Redis"]
   },
   {
     company: "StartUp Labs",
     role: "Junior Developer",
     location: "On-site",
     period: "2020 - 2021",
+    duration: "1 year",
     status: "Past",
     description: "Contributed to rapid development of MVP products and prototypes",
     achievements: [
@@ -45,18 +46,16 @@ const experienceData = [
       "Integrated third-party APIs",
       "Participated in agile development"
     ],
-    tech: ["JavaScript", "Express", "MySQL"],
-    side: "left"
+    tech: ["JavaScript", "Express", "MySQL"]
   }
 ];
 
 const Experience = () => {
   return (
-    <section id="experience" className="relative py-16 md:py-24 bg-gradient-to-b from-background via-background/95 to-background overflow-hidden">
+    <section id="experience" className="relative py-16 md:py-24 bg-gradient-to-b from-background to-background/90 overflow-hidden">
       {/* Background decorations */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-grid-white/[0.02] pointer-events-none" />
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
@@ -73,102 +72,118 @@ const Experience = () => {
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative max-w-6xl mx-auto">
-          {/* Central line - hidden on mobile */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/30 to-primary/50 transform -translate-x-1/2" />
-          
-          {/* Timeline nodes */}
-          <div className="space-y-8 md:space-y-12">
-            {experienceData.map((exp, index) => (
-              <div
-                key={index}
-                className={`relative flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 ${
-                  exp.side === "right" ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Timeline dot */}
-                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background shadow-lg shadow-primary/50 z-10" />
-                
-                {/* Content card */}
-                <div className={`w-full md:w-[calc(50%-2rem)] ${exp.side === "left" ? "md:text-right" : ""}`}>
-                  <Card className="group border-primary/20 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 bg-card/50 backdrop-blur-sm">
-                    <CardHeader className="pb-3 bg-gradient-to-br from-primary/10 to-primary/5 border-b border-primary/10">
-                      <div className={`flex flex-col ${exp.side === "left" ? "md:items-end" : "md:items-start"} gap-2`}>
-                        <div className="flex flex-wrap items-center gap-2">
-                          <Badge 
-                            variant={exp.status === "Current" ? "default" : "secondary"}
-                            className="text-xs font-mono"
-                          >
-                            {exp.status === "Current" ? "● ACTIVE" : "✓ COMPLETED"}
-                          </Badge>
-                          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                            <Calendar className="w-3 h-3" />
-                            <span className="font-mono">{exp.period}</span>
-                          </div>
-                        </div>
-                        <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                          {exp.role}
-                        </h3>
-                        <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                          <span className="font-semibold text-foreground">{exp.company}</span>
-                          <span>•</span>
-                          <div className="flex items-center gap-1">
-                            <MapPin className="w-3 h-3" />
-                            <span>{exp.location}</span>
-                          </div>
-                        </div>
+        {/* Experience Cards Grid */}
+        <div className="max-w-5xl mx-auto space-y-6">
+          {experienceData.map((exp, index) => (
+            <Card
+              key={index}
+              className="group border-l-4 border-l-primary/50 hover:border-l-primary transition-all duration-300 bg-card/80 backdrop-blur-sm hover:shadow-2xl hover:shadow-primary/5 overflow-hidden"
+            >
+              <div className="flex flex-col md:flex-row">
+                {/* Left Side - Company Info */}
+                <div className="md:w-72 p-6 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-b md:border-b-0 md:border-r border-border/50">
+                  <div className="space-y-4">
+                    {/* Company */}
+                    <div>
+                      <div className="flex items-center gap-2 text-primary mb-2">
+                        <Building2 className="w-5 h-5" />
+                        <span className="text-xs font-mono uppercase tracking-wider">Company</span>
                       </div>
-                    </CardHeader>
-                    
-                    <CardContent className="pt-4 space-y-4">
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {exp.description}
-                      </p>
-                      
-                      {/* Achievements */}
-                      <div className="space-y-2">
-                        <div className={`flex items-center gap-2 text-xs font-mono text-primary ${exp.side === "left" ? "md:justify-end" : ""}`}>
-                          <TrendingUp className="w-3 h-3" />
-                          <span>KEY_ACHIEVEMENTS</span>
-                        </div>
-                        <ul className={`space-y-1.5 text-sm ${exp.side === "left" ? "md:text-right" : ""}`}>
-                          {exp.achievements.map((achievement, i) => (
-                            <li key={i} className="text-muted-foreground flex items-start gap-2">
-                              <span className="text-primary mt-1">▹</span>
-                              <span className="flex-1">{achievement}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      <h3 className="text-xl font-bold text-foreground">
+                        {exp.company}
+                      </h3>
+                    </div>
+
+                    {/* Period & Duration */}
+                    <div>
+                      <div className="flex items-center gap-2 text-primary mb-2">
+                        <Calendar className="w-4 h-4" />
+                        <span className="text-xs font-mono uppercase tracking-wider">Timeline</span>
                       </div>
-                      
-                      {/* Tech stack */}
-                      <div className="space-y-2 pt-2 border-t border-border/50">
-                        <div className={`flex items-center gap-2 text-xs font-mono text-primary ${exp.side === "left" ? "md:justify-end" : ""}`}>
-                          <Code2 className="w-3 h-3" />
-                          <span>TECH_STACK</span>
-                        </div>
-                        <div className={`flex flex-wrap gap-2 ${exp.side === "left" ? "md:justify-end" : ""}`}>
-                          {exp.tech.map((tech, i) => (
-                            <Badge
-                              key={i}
-                              variant="outline"
-                              className="text-xs font-mono border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-colors"
-                            >
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
+                      <div className="space-y-1">
+                        <p className="text-sm font-medium text-foreground">{exp.period}</p>
+                        <p className="text-xs text-muted-foreground font-mono">{exp.duration}</p>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+
+                    {/* Location */}
+                    <div>
+                      <div className="flex items-center gap-2 text-primary mb-2">
+                        <MapPin className="w-4 h-4" />
+                        <span className="text-xs font-mono uppercase tracking-wider">Location</span>
+                      </div>
+                      <p className="text-sm text-foreground">{exp.location}</p>
+                    </div>
+
+                    {/* Status Badge */}
+                    <div className="pt-2">
+                      <Badge 
+                        variant={exp.status === "Current" ? "default" : "secondary"}
+                        className="font-mono text-xs"
+                      >
+                        {exp.status === "Current" ? (
+                          <>
+                            <Zap className="w-3 h-3 mr-1 fill-current" />
+                            ACTIVE
+                          </>
+                        ) : (
+                          "COMPLETED"
+                        )}
+                      </Badge>
+                    </div>
+                  </div>
                 </div>
-                
-                {/* Spacer for other side on desktop */}
-                <div className="hidden md:block w-[calc(50%-2rem)]" />
+
+                {/* Right Side - Role & Details */}
+                <div className="flex-1 p-6 space-y-5">
+                  {/* Role */}
+                  <div>
+                    <h4 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-2">
+                      {exp.role}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {exp.description}
+                    </p>
+                  </div>
+
+                  {/* Achievements */}
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-xs font-mono text-primary">
+                      <TrendingUp className="w-3.5 h-3.5" />
+                      <span>KEY ACHIEVEMENTS</span>
+                    </div>
+                    <ul className="space-y-2">
+                      {exp.achievements.map((achievement, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm group/item">
+                          <span className="text-primary mt-0.5 group-hover/item:scale-125 transition-transform">▹</span>
+                          <span className="text-muted-foreground leading-relaxed">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Tech Stack */}
+                  <div className="space-y-3 pt-3 border-t border-border/50">
+                    <div className="flex items-center gap-2 text-xs font-mono text-primary">
+                      <Code2 className="w-3.5 h-3.5" />
+                      <span>TECHNOLOGIES</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.tech.map((tech, i) => (
+                        <Badge
+                          key={i}
+                          variant="outline"
+                          className="text-xs font-mono border-primary/30 bg-primary/5 hover:border-primary/50 hover:bg-primary/10 transition-colors cursor-default"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
